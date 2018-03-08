@@ -1,7 +1,6 @@
 // CHALLENGE 1: REVERSE A STRING
 // Return a string in reverse
 // ex. reverseString('hello') === 'olleh'
-
 function reverseString(str) {
   //return str.split("").reverse().join("");
 
@@ -45,7 +44,6 @@ function reverseString(str) {
 // CHALLENGE 2: VALIDATE A PALINDROME
 // Return true if palindrome and false if not
 // ex. isPalindrome('racecar') === 'true', isPalindrome('hello') == false
-
 function isPalindrome(str) {
   const revStr = str.split("").reverse().join("");
    return revStr === str;
@@ -55,7 +53,6 @@ function isPalindrome(str) {
 // CHALLENGE 3: REVERSE AN INTEGER
 // Return an integer in reverse
 // ex. reverseInt(521) === 125
-
 function reverseInt(int) {
   const intRev = int.toString().split("").reverse().join("");
   return parseInt(intRev) * Math.sign(int);
@@ -66,7 +63,19 @@ function reverseInt(int) {
 // CHALLENGE 4: CAPITALIZE LETTERS
 // Return a string with the first letter of every word capitalized
 // ex. capitalizeLetters('i love javascript') === 'I Love Javascript'
-function capitalizeLetters(str) {}
+function capitalizeLetters(str) {
+  // const wordsArray = str.toLowerCase().split(" ");
+  // for ( let i = 0; i < wordsArray.length; i++) {
+  //   wordsArray[i] = wordsArray[i].substring(0, 1).toUpperCase() + wordsArray[i].substring(1);
+  // }
+  // return wordsArray.join(" ");
+
+  // return str.toLowerCase().split(" ").map(function(word) {
+  //   return word[0].toUpperCase() + word.substr(1);
+  // }).join(" ");
+
+  return str.toLowerCase().split(" ").map(word => word[0].toUpperCase() + word.substr(1)).join(" ");
+}
 
 
 
@@ -86,6 +95,7 @@ function fizzBuzz() {}
 // Call Function
 //const output = reverseString('hello');
 //const output = isPalindrome('hello');
-const output = reverseInt(-121);
+//const output = reverseInt(-121);
+const output = capitalizeLetters("i love coding");
 
 console.log(output);
