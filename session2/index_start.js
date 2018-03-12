@@ -6,7 +6,43 @@ function longestWord(sen) {
   // SOLUTION 1 - Return a single longest word
   // SOLUTION 2 - Return an array and include multiple words if they have the same length
   // SOLUTION 3 - Only return an array if multiple words, otherwise return a string
+
+  // //create filterd array (without the comma)
+  // const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g);
+  // //sort by length
+  // const sorted = wordArr.sort(function(a, b){
+  //   return b.length - a.length
+  // });
+  // // if multiple words same lenght, than put into array
+  // const longestWordArr = sorted.filter(function(word) {
+  //   return word.length === sorted[0].length;
+  // });
+  // // check if more than 1 array value
+  // if (longestWordArr.length === 1) {
+  //   //return the word
+  //   return longestWordArr[0];
+  // } else {
+  //   return longestWordArr;
+  // }
+
+  const wordArr = sen.toLowerCase().match(/[a-z0-9]+/g);
+  const sorted = wordArr.sort((a, b) => b.length - a.length);
+  const longestWordArr = sorted.filter(word => word.length === sorted[0].length);
+  if (longestWordArr.length === 1) {
+    return longestWordArr[0];
+  } else {
+    return longestWordArr;
+  }
 }
+
+  // senArray = sen.split("");
+  // var longestWord = 0;
+  // for (var i = 0; i < senArray.length; i++) {
+  //   if (senArray[i].length > longestWord) {
+  //     longestWord = senArray[i].length;
+  //   }
+  // }
+  // return longestWord;
 
 // CHALLENGE 2: ARRAY CHUNKING
 // Split an array into chunked arrays of a specific length
