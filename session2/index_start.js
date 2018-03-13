@@ -139,11 +139,38 @@ function formatStr() {
 // Z should turn to A
 // ex. 'hello there' === 'Ifmmp UIfsf'
 
-function letterChanges(str) {}
+function letterChanges(str) {
+//   let newStr = str.toLowerCase().replace(/[a-z]/gi, function(char) {
+//     //if z it should be an a
+//     if(char === 'z' || char === 'Z') {
+//       return 'a';
+//     } else {
+//       //if not z, every letter in alaphabet has a character code, so take String object
+//       //and get it and add one to get next letter
+//       return String.fromCharCode(char.charCodeAt() + 1);
+//     }
+//   });
+//   newStr = newStr.replace(/a|e|i|o|u/gi, function(vowel) {
+//     return vowel.toUpperCase();
+//   })
+//   return newStr;
+// }
+
+let newStr = str.toLowerCase().replace(/[a-z]/gi, char => {
+  if(char === 'z' || char === 'Z') {
+    return 'a';
+  } else {
+    return String.fromCharCode(char.charCodeAt() + 1);
+  }
+});
+newStr = newStr.replace(/a|e|i|o|u/gi, vowel => vowel.toUpperCase());
+return newStr;
+}
 
 // Call Function
 //const output = longestWord('Hello, my name is Brad');
 //const output = chunkArray([1, 2, 3, 4, 5, 6, 7], 3);
 //const output = flattenArray([[1, 2], [3, 4], [5, 6], [7]]);
-const output = isAnagram('elbow', 'below');
+//const output = isAnagram('elbow', 'below');
+const output = letterChanges('Hello There');
 console.log(output);
