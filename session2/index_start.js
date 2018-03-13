@@ -64,27 +64,58 @@ function chunkArray(arr, len) {
 //   return chunkedArr;
 // }
 
-  //init chunked array
-  const chunkedArr = [];
-  //loop through array
-  arr.forEach(function(val) {
-    //get last element
-    const last = chunkedArr[chunkedArr.length-1]
-    //check if there is a last and if the last length is equal to the chunk length
-    if(!last || last.length === len) {
-      chunkedArr.push([val]);
-    } else {
-      last.push(val);
-    }
-  });
-  return chunkedArr;
+//   //init chunked array
+//   const chunkedArr = [];
+//   //loop through array
+//   arr.forEach(function(val) {
+//     //get last element
+//     const last = chunkedArr[chunkedArr.length-1]
+//     //check if there is a last and if the last length is equal to the chunk length
+//     if(!last || last.length === len) {
+//       chunkedArr.push([val]);
+//     } else {
+//       last.push(val);
+//     }
+//   });
+//   return chunkedArr;
+// }
+
+//init chunked array
+const chunkedArr = [];
+//loop through array
+arr.forEach(val => {
+  //get last element
+  const last = chunkedArr[chunkedArr.length-1]
+  //check if there is a last and if the last length is equal to the chunk length
+  if(!last || last.length === len) {
+    chunkedArr.push([val]);
+  } else {
+    last.push(val);
+  }
+});
+return chunkedArr;
 }
 
 // CHALLENGE 3: FLATTEN ARRAY
 // Take an array of arrays and flatten to a single array
 // ex. [[1, 2], [3, 4], [5, 6], [7]] = [1, 2, 3, 4, 5, 6, 7]
 
-function flattenArray(arrays) {}
+function flattenArray(arrays) {
+  //solution 1
+//   return arrays.reduce(function(a, b) {
+//     return a.concat(b);
+//   });
+// }
+
+return arrays.reduce((a, b) => a.concat(b));
+
+//solution 2
+// return [].concat.apply([], arrays);
+
+//solution 3
+//return [].concat(...arrays);
+}
+
 
 // CHALLENGE 4: ANAGRAM
 // Return true if anagram and false if not
@@ -102,6 +133,6 @@ function letterChanges(str) {}
 
 // Call Function
 //const output = longestWord('Hello, my name is Brad');
-const output = chunkArray([1, 2, 3, 4, 5, 6, 7], 3);
-
+//const output = chunkArray([1, 2, 3, 4, 5, 6, 7], 3);
+const output = flattenArray([[1, 2], [3, 4], [5, 6], [7]]);
 console.log(output);
