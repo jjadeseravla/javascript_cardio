@@ -122,7 +122,17 @@ return arrays.reduce((a, b) => a.concat(b));
 // ex. 'elbow' === 'below'
 // ex. 'Dormitory' === 'dirty room##'
 
-function isAnagram(str1, str2) {}
+function isAnagram(str1, str2) {
+  return formatStr(str1) === formatStr(str2);
+}
+//helper function
+function formatStr() {
+  //take out anything that doesnt match a word character and replace that with an empty string
+  //then after lowercase we need to sort everything, not just string, need to put into an array,
+  //where each array value is a letter or a character, so each character has its own array value
+  //join() turns it back into a string
+  return str.replace(/[^\w]/g,  "").toLowerCase().split("").sort().join("")
+}
 
 // CHALLENGE 5: LETTER CHANGES
 // Change every letter of the string to the one that follows it and capitalize the vowels
@@ -134,5 +144,6 @@ function letterChanges(str) {}
 // Call Function
 //const output = longestWord('Hello, my name is Brad');
 //const output = chunkArray([1, 2, 3, 4, 5, 6, 7], 3);
-const output = flattenArray([[1, 2], [3, 4], [5, 6], [7]]);
+//const output = flattenArray([[1, 2], [3, 4], [5, 6], [7]]);
+const output = isAnagram('elbow', 'below');
 console.log(output);
